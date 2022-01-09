@@ -4,16 +4,20 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:peerqr/conf.dart';
+import 'package:peerqr/logic/language.dart';
 
 import 'package:peerqr/logic/theme.dart';
 import 'package:peerqr/screens/loading.dart';
 import 'package:provider/provider.dart';
 import 'utils/material_ink_well.dart';
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 void main() {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (_) => ThemeManager()),
+      ChangeNotifierProvider(create: (_) => LanguageManager())
     ],
     child: const PeerQrApp(),
   ));
@@ -37,6 +41,7 @@ class PeerQrApp extends StatelessWidget {
               // systemNavigationBarDividerColor: Colors.deepPurple.shade100,
               systemNavigationBarIconBrightness: Brightness.dark),
       child: MaterialApp(
+        navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
         localizationsDelegates: const [
           AppLocalizations.delegate,
@@ -59,7 +64,7 @@ class PeerQrApp extends StatelessWidget {
                 selectionHandleColor: Colors.grey.shade200.withOpacity(0.9),
                 selectionColor: Colors.deepPurple.shade100.withOpacity(0.6)),
 
-            // sharik top icon color
+            // peerqr top icon color
             accentColor: Colors.deepPurple.shade500,
 
             // primarySwatch: Colors.deepPurple,
@@ -89,7 +94,7 @@ class PeerQrApp extends StatelessWidget {
               selectionHandleColor: Colors.deepPurple.shade300.withOpacity(0.9),
               selectionColor: Colors.deepPurple.shade50.withOpacity(0.4)),
 
-          // sharik top icon color
+          // peerqr top icon color
           accentColor: Colors.deepPurple.shade300,
 
           // right click selection color
@@ -102,7 +107,7 @@ class PeerQrApp extends StatelessWidget {
           buttonColor: Colors.deepPurple.shade100.withOpacity(0.8),
         ),
         themeMode: context.watch<ThemeManager>().theme,
-        home: const LoadingScreen(),
+        home: LoadingScreen(),
       ),
     );
   }
