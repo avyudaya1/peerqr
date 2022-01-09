@@ -1,0 +1,9 @@
+{
+  "@@locale": "en",
+  "homeSelectFile": "Select file",
+
+  "settingsTheme": "Theme",
+  "settingsThemeSystem": "System",
+  "settingsThemeLight": "Light",
+  "settingsThemeDark": "Dark"
+}
