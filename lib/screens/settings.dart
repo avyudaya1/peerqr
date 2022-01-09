@@ -77,7 +77,6 @@ class SettingsScreen extends StatelessWidget {
                         children: [
                           _appearanceSection(context),
                           const SizedBox(height: 24),
-                          _privacySection(context),
                         ],
                       );
                     } else {
@@ -86,7 +85,6 @@ class SettingsScreen extends StatelessWidget {
                         children: [
                           Expanded(child: _appearanceSection(context)),
                           const SizedBox(width: 24),
-                          Expanded(child: _privacySection(context)),
                         ],
                       );
                     }
@@ -187,18 +185,6 @@ class SettingsScreen extends StatelessWidget {
                     activeColor: Colors.deepPurple.shade300,
                   )),
         ),
-      ],
-    );
-  }
-
-  Widget _privacySection(BuildContext context) {
-    return Column(
-      children: [
-        Text(context.l.settingsPrivacy,
-            textAlign: TextAlign.center,
-            style: GoogleFonts.getFont(context.l.fontComfortaa,
-                fontSize: 18, fontWeight: FontWeight.bold)),
-        const SizedBox(height: 14),
       ],
     );
   }

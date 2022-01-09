@@ -76,8 +76,10 @@ class LanguagePickerScreen extends StatelessWidget {
                       context.read<LanguageManager>().language =
                           languageList[index];
 
-                      PeerQrRouter.navigateTo(
-                          _globalKey, Screens.home, RouteDirection.right);
+                      if (set) {
+                        PeerQrRouter.navigateTo(
+                            _globalKey, Screens.home, RouteDirection.right);
+                      }
                     }),
                   );
                 }),
